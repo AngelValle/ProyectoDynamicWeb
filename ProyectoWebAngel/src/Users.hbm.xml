@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 24-jun-2015 15:56:00 by Hibernate Tools 4.0.0 -->
+<hibernate-mapping  package="clases">
+    <class name="Users" table="USERS">
+        <id name="userName" type="string">
+            <column name="USER_NAME" length="15" />
+            <generator class="assigned" />
+        </id>
+        <property name="userPass" type="string">
+            <column name="USER_PASS" length="15" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
