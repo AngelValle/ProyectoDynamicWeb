@@ -49,7 +49,7 @@ public class ServletAutentificacion extends HttpServlet{
 		// SI EL USUARIO NO EXISTE.....
 		if(usuario==null)
 		{
-			out.println("<meta http-equiv=\"refresh\" content=\"8; url=login.html\">");
+			out.println("<meta http-equiv=\"refresh\" content=8; url=login.html\">");
 			out.println("Usuario no encontrado, por favor, registrese antes.<br>Usted sera redirigido automaticamente a Login.html.<br>Si no se redirige automaticamente puede hacerlo manualmente");
 			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"login.html\">Login</a></td></tr></table>");
 			
@@ -77,8 +77,9 @@ public class ServletAutentificacion extends HttpServlet{
 			{
 				logger.trace("Peticion con sesion asiganada");
 			}
-			out.println("Usuario encontrado, usted a entrado en sesion");
-			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table>");
+			out.println("Bienvenido "+httpsesion.getAttribute("nombre"));
+//			out.println("<meta http-equiv=\"refresh\" content=\"8; url=login.html\">");
+			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><form action=\"ServletCerrarSesion\" method=\"get\"><input type=\"submit\" value=\"Cerrar sesion\"></form></td></tr></table>");
 		}
 		
 		

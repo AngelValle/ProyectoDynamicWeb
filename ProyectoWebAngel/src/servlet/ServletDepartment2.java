@@ -16,7 +16,6 @@ import conexiones.SessionManager;
 
 import sentenciasSQL.SentenciasSQL;
 import clases.Departments;
-import clases.Employees;
 import dao.SuperDAO;
 
 public class ServletDepartment2 extends HttpServlet{
@@ -65,6 +64,8 @@ public class ServletDepartment2 extends HttpServlet{
 							"<tr><td><a href=\"index.html\">Inicio</a></td></tr>"+
 						"</table>");
 		}
+		req.getRequestDispatcher("/ServletConexionesActivas").include(req, resp);
+		
 	}		
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 

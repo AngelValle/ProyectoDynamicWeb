@@ -27,6 +27,12 @@
   </context-param>
   -->
   
+  <!-- Configuracion Tiempo de Sesion -->
+  
+  <session-config>
+      <session-timeout>5</session-timeout>
+  </session-config>
+  
   <!-- Servlets -->
   
   <servlet>
@@ -103,6 +109,24 @@
   <servlet-mapping>
       <servlet-name>Servlet9</servlet-name>
 	  <url-pattern>/ServletSession</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>Servlet10</servlet-name>
+      <servlet-class>servlet.ServletConexionesActivas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>Servlet10</servlet-name>
+	  <url-pattern>/ServletConexionesActivas</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+      <servlet-name>Servlet11</servlet-name>
+      <servlet-class>servlet.ServletCerrarSesion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>Servlet11</servlet-name>
+	  <url-pattern>/ServletCerrarSesion</url-pattern>
   </servlet-mapping>
   
   <!-- Listeners -->

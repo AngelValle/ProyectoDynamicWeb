@@ -1,8 +1,12 @@
 package baul;
 
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,12 +39,13 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
 			e.printStackTrace();
 			logger.error("Error al recoger Session Factory del ServletContext o cerrarlo");
 		}
-		System.out.println("ServletContextListener : Destruido");
+		logger.trace("ServletContextListener : Destruido");
 	}
 
 	@Override
 	public void contextInitialized(ServletContextEvent servletcontextevent) 
 	{
+		Map<String, HttpSession> map_sesiones = new HashMap<String, HttpSession>();
 		ServletContext servletcontext = null;
 		SessionFactory sessionfactory = null;
 		int peticiones_contador = 0;
@@ -51,12 +56,19 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
 		{
 			sessionfactory = SessionManager.getSessionFactory();
 			logger.info("Session Factory creada con SessionManager");
+			
 			servletcontext.setAttribute("SessionFactory", sessionfactory);
 			logger.info("Session Factory insertada en ServletContext");
+			
 			servletcontext.setAttribute("peticiones_contador", peticiones_contador);
 			logger.info("Contador de peticiones establecido a 0");
+			
 			servletcontext.setAttribute("peticiones_activas", peticiones_activas);
 			logger.info("Peticiones Activas establecido a 0");
+			
+			servletcontext.setAttribute("map_sesiones", map_sesiones);
+			logger.info("HashMap de sesiones implementado como Atributo en ServletContext");
+			
 		}
 		catch(Exception e)
 		{
@@ -64,6 +76,6 @@ public class ServletContextListener implements javax.servlet.ServletContextListe
 			logger.error("Error al crear Session Factory o insertarlo en el  ServletContext");
 		}
 		
-		System.out.println("ServletContextListener : Inicializado");
+		logger.trace("ServletContextListener : Inicializado");
 	}
 }
