@@ -24,7 +24,6 @@ public class Filter implements javax.servlet.Filter {
 	@Override
 	public void doFilter(ServletRequest servletrequest, ServletResponse servletresponse, FilterChain filterchain) throws IOException, ServletException 
 	{
-		
 		long tiempoinicio = System.currentTimeMillis();
 		log.trace("Pasada por doFilter");
 		filterchain.doFilter(servletrequest, servletresponse);

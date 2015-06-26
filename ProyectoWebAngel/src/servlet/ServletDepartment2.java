@@ -10,13 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Session;
-
-import conexiones.SessionManager;
-
-import sentenciasSQL.SentenciasSQL;
+import servicios.DepartmentsServices;
 import clases.Departments;
-import dao.SuperDAO;
 
 public class ServletDepartment2 extends HttpServlet{
 	
@@ -27,16 +22,15 @@ public class ServletDepartment2 extends HttpServlet{
 		
 		if(refresco.equals("Refrescar"))
 		{
-			SuperDAO superdao = new SuperDAO();	
-			Session s_sesion = SessionManager.obtenerSesionNueva();
-			superdao.setSesion(s_sesion);
+			List<Departments> list_departamentos = null;
+			DepartmentsServices departmentsservices = new DepartmentsServices();
+			
+			list_departamentos = departmentsservices.listaDepartamentosConTrabajadores();
+			Iterator<Departments> it_departamentos = list_departamentos.iterator();
 			
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
 			
-			List list_departamentos = null;
-			list_departamentos = superdao.getSesion().createSQLQuery(SentenciasSQL.recogerlistadepartments2).addEntity(Departments.class).list();
-			Iterator it_departamentos = list_departamentos.iterator();
 			
 			out.println("<h1 align=\"center\"> department.html</h1>"+
 						"<table align=\"center\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\">"+
@@ -62,10 +56,10 @@ public class ServletDepartment2 extends HttpServlet{
 						
 						"<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\">"+
 							"<tr><td><a href=\"index.html\">Inicio</a></td></tr>"+
-						"</table>");
+						"</table><br><br><br>");
+			
 		}
 		req.getRequestDispatcher("/ServletConexionesActivas").include(req, resp);
-		
 	}		
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 

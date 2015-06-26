@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,15 +20,20 @@ public class ServletCerrarSesion extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
 	{
+		resp.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = resp.getWriter();
+		
 		HttpSession httpsesion = req.getSession(false);
 		if(null==httpsesion)
 		{
 			logger.trace("Error al cerrar la sesion (HttpSession no existente)");
+			out.println("Error al cerrar la sesion (HttpSession no existente)");
 		}
 		else if(null!=httpsesion)
 		{
+			logger.trace("Sesion finalizada "+req.getSession(false).getAttribute("nombre"));
+			out.println("Sesion finalizada "+req.getSession(false).getAttribute("nombre"));
 			httpsesion.invalidate();
-			logger.trace("Sesion finalizada "+req.getSession().getAttribute("nombre"));
 		}
 	}
 	

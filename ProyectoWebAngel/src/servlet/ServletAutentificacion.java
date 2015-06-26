@@ -7,7 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,11 +21,7 @@ public class ServletAutentificacion extends HttpServlet{
 	
 	private static final Logger logger = LogManager.getRootLogger();
 	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
-	{
-		super.doGet(req, resp);
-	}
+	
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException 
@@ -41,14 +36,14 @@ public class ServletAutentificacion extends HttpServlet{
 		Users usuario = null;
 		usuario = (Users)superdao.getSesion().createSQLQuery("SELECT * FROM USERS WHERE USER_NAME='"+nombre+"' AND USER_PASS='"+clave+"'").addEntity(Users.class).uniqueResult();
 		
-		resp.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = resp.getWriter();
-		
 		// DECIDIMOS QUE VAMOS A HACER CON EL USUARIO
 		
 		// SI EL USUARIO NO EXISTE.....
 		if(usuario==null)
 		{
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			
 			out.println("<meta http-equiv=\"refresh\" content=8; url=login.html\">");
 			out.println("Usuario no encontrado, por favor, registrese antes.<br>Usted sera redirigido automaticamente a Login.html.<br>Si no se redirige automaticamente puede hacerlo manualmente");
 			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"login.html\">Login</a></td></tr></table>");
@@ -57,32 +52,18 @@ public class ServletAutentificacion extends HttpServlet{
 		
 		else if (!usuario.getUserName().equals(nombre) || !usuario.getUserPass().equals(clave)) 
 		{
+			resp.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = resp.getWriter();
+			
 			out.println("<meta http-equiv=\"refresh\" content=\"8; url=login.html\">");
 			out.println("Usuario o contraseña erronea, por favor, vuelva a logearse.<br>Usted sera redirigido automaticamente a Login.html.<br>Si no se redirige automaticamente puede hacerlo manualmente");
 			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"login.html\">Login</a></td></tr></table>");
 		}
 		
-		// SI EL USUARIO EXISTE.....
+		// SI EL USUARIO EXISTE LLAMAMOS AL SERVLET SESSION
 		else if(usuario.getUserName().equals(nombre) && usuario.getUserPass().equals(clave))
 		{
-			HttpSession httpsesion = req.getSession(false);
-			
-			if(httpsesion==null)
-			{
-				logger.trace("Peticion sin sesion asiganada");
-				httpsesion = req.getSession(true);
-				httpsesion.setAttribute("nombre", nombre);
-			}
-			if(httpsesion!=null)
-			{
-				logger.trace("Peticion con sesion asiganada");
-			}
-			out.println("Bienvenido "+httpsesion.getAttribute("nombre"));
-//			out.println("<meta http-equiv=\"refresh\" content=\"8; url=login.html\">");
-			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><form action=\"ServletCerrarSesion\" method=\"get\"><input type=\"submit\" value=\"Cerrar sesion\"></form></td></tr></table>");
+			req.getRequestDispatcher("/ServletSession").forward(req, resp);
 		}
-		
-		
-		
 	}
 }

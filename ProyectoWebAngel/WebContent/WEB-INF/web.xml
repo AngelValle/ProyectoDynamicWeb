@@ -129,6 +129,15 @@
 	  <url-pattern>/ServletCerrarSesion</url-pattern>
   </servlet-mapping>
   
+  <servlet>
+      <servlet-name>Servlet12</servlet-name>
+      <servlet-class>servlet.ServletRedireccion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+      <servlet-name>Servlet12</servlet-name>
+	  <url-pattern>/ServletRedireccion</url-pattern>
+  </servlet-mapping>
+  
   <!-- Listeners -->
   
   <listener>
@@ -183,6 +192,15 @@
   <filter-mapping>
     <filter-name>filter4</filter-name>
     <url-pattern>/ServletDepartment</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+    <filter-name>filter5</filter-name>
+    <filter-class>servlet.FiltroSesionActiva</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>filter5</filter-name>
+    <url-pattern>/*</url-pattern>
   </filter-mapping>
   
 </web-app>
