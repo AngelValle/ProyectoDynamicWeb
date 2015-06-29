@@ -44,7 +44,7 @@ public class ServletAutentificacion extends HttpServlet{
 			resp.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = resp.getWriter();
 			
-			out.println("<meta http-equiv=\"refresh\" content=8; url=login.html\">");
+//			out.println("<meta http-equiv=\"refresh\" content=8; url=login.html\">");
 			out.println("Usuario no encontrado, por favor, registrese antes.<br>Usted sera redirigido automaticamente a Login.html.<br>Si no se redirige automaticamente puede hacerlo manualmente");
 			out.println("<table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"index.html\">Inicio</a></td></tr></table><br><br><table align=\"right\" bordercolor=\"BLACK\" bgcolor=\"#FFFFFF\"><tr><td><a href=\"login.html\">Login</a></td></tr></table>");
 			

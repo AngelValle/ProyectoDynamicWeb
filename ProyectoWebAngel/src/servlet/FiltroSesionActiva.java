@@ -32,11 +32,11 @@ public class FiltroSesionActiva implements Filter {
 		
 		if(null==httpservletrequest.getSession(false))
 		{
-			if(httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/ServletAutentificacion") || httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/login.html"))
+			if(httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/ServletAutentificacion") || httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/login.html") || httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/index.html"))
 			{
 				filterchain.doFilter(httpservletrequest, httpservletresponse);
 			}
-			else if(!httpservletrequest.getRequestURI().equals("/ProyectoWebAngel") && !httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/login.html") && !httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/index.html"))
+			else if(!httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/ServletAutentificacion") && !httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/login.html") && !httpservletrequest.getRequestURI().equals("/ProyectoWebAngel/index.html"))
 			{
 				httpservletresponse.sendRedirect("/ProyectoWebAngel/login.html");
 			}
