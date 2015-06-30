@@ -200,7 +200,29 @@
   </filter>
   <filter-mapping>
     <filter-name>filter5</filter-name>
-    <url-pattern>/*</url-pattern>
+    
+    <url-pattern>/buscardeparments.html</url-pattern>
+    <url-pattern>/department.html</url-pattern>
+    <url-pattern>/employee.html</url-pattern>
+    <url-pattern>/employee2.html</url-pattern>
+    <url-pattern>/incrementarsalario.html</url-pattern>
+    <url-pattern>/proyectos.html</url-pattern>
+    <url-pattern>/login.html</url-pattern>
+    <url-pattern>/proyectos.html</url-pattern>
+    <url-pattern>/pruebagetpost.html</url-pattern>
+    <url-pattern>/sesiones.html</url-pattern>
+    
+    <url-pattern>/ServletAutentification</url-pattern>
+    <url-pattern>/ServletCerrarSesion</url-pattern>
+    <url-pattern>/ServletConexionesActivas</url-pattern>
+    <url-pattern>/ServletDepartment</url-pattern>
+    <url-pattern>/ServletDepartment2</url-pattern>
+    <url-pattern>/ServletEmployee</url-pattern>
+    <url-pattern>/ServletIncrementarSalario</url-pattern>
+    <url-pattern>/ServletLeerEmployee_JDBC_HIBERNATE_JPA</url-pattern>
+    <url-pattern>/ServletPruebasGetPost</url-pattern>
+    <url-pattern>/ServletRedireccion</url-pattern>
+    <url-pattern>/ServletSesion</url-pattern>
   </filter-mapping>
   
 </web-app>

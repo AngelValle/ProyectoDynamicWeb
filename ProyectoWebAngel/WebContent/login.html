@@ -6,50 +6,65 @@
 		<meta content="Pagina personal de Angel Valle" name="description">
 		<meta content="pagina, personal, angel, valle, angelvalle" name="keywords"> 
 		<title>angelvalle.com&reg;</title>
-	    <link rel="stylesheet" href="css/stylesheet.css">
+	    <link rel="stylesheet" href="stylesheet.css">
 	</head>
-	
 	<body>
-		<h1 align="center"> login.html</h1>
+		<header>
+			<div id="navheaddiv" class="navheaddiv">
+	    		<nav id="navhead" class="navhead">
+	            	<a href="http://angelvalle.com" id="navheadlogo">Angelvalle.com</a>
+	        		<ul>
+	            		<li><a href="index.html">Inicio</a></li>
+		                <li><a href="proyectos.html">Proyectos</a></li>
+	    	            <li><a href="login.html">Login</a></li>
+	                	<li><a href="contacto.html">Contacto</a></li>
+	            	</ul>
+		        </nav>
+	    	</div>
+	    </header>
+	    
+    	<div id="cuerpo">
+	    	<div id="columnaizquierda">
+	             <section>
+	                <article class="columnaizquierda">
+	            		<p class="particlevid">Inicio de sesion</p>
+							<form action="ServletAutentificacion" method="post">
+								<table class="vervid" frame="above">
+									<tr>
+										<td>
+											<p>Nombre: </p>
+										</td>
+										<td>
+											<input type="text" name="nombreempleado"></input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<p>Clave: </p>
+										</td>
+										<td>
+											<input type="password" name="claveempleado"></input>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<input type="submit" value="Enviar">
+										</td>
+										<td>
+											<input type="reset" value="Borrar">
+										</td>
+									</tr>
+								</table>
+							</form>
+	            	</article>
+	            </section>
+         </div id="columnaizquierda">
+     </div id="cuerpo">
 		
-		<table align="center" bordercolor="BLACK" bgcolor="#FFFFFF">
-			<tr><th align="center" bgcolor="#BBBBBB" height="25" width="800">Iniciar sesion</th></tr>
-		</table>
-		<br>
-		
-		<form action="ServletAutentificacion" method="post">
-		<table align="center" bordercolor="BLACK" bgcolor="#FFFFFF" frame="above" width="800">
-			<tr>
-				<td>
-					<p>Nombre: </p>
-				</td>
-				<td>
-					<input type="text" name="nombreempleado"></input>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<p>Clave: </p>
-				</td>
-				<td>
-					<input type="password" name="claveempleado"></input>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="submit" value="Enviar">
-				</td>
-				<td>
-					<input type="reset" value="Borrar">
-				</td>
-			</tr>
-			</table>
-		</form>
-		
-		
-		<table align="right" bordercolor="BLACK" bgcolor="#FFFFFF">
-			<tr><td><a href="index.html">Inicio</a></td></tr>
-		</table>
+		<!-- Marquee = Texto en movimiento (Pie de pagina)-->
+		<marquee class="marquee">
+			- Diseño echo por Angel Valle - Proyecto -
+		</marquee>
 		
 	</body>
 </html>
