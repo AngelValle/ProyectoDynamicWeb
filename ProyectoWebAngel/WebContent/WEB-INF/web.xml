@@ -140,17 +140,17 @@
   
   <!-- Listeners -->
   
-  <listener>
-		<listener-class>baul.HTTPSessionListener</listener-class>
-  </listener>
+<!--   <listener> -->
+<!-- 		<listener-class>baul.HTTPSessionListener</listener-class> -->
+<!--   </listener> -->
   
-  <listener>
-		<listener-class>baul.ServletContextListener</listener-class>
-  </listener>
+<!--   <listener> -->
+<!-- 		<listener-class>baul.ServletContextListener</listener-class> -->
+<!--   </listener> -->
   
-  <listener>
-		<listener-class>baul.ServletRequestListener</listener-class>
-  </listener>
+<!--   <listener> -->
+<!-- 		<listener-class>baul.ServletRequestListener</listener-class> -->
+<!--   </listener> -->
   
   <!-- Filters -->
   

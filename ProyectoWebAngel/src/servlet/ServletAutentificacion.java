@@ -34,7 +34,7 @@ public class ServletAutentificacion extends HttpServlet{
 		superdao.setSesion(s_sesion);
 		
 		Users usuario = null;
-		usuario = (Users)superdao.getSesion().createSQLQuery("SELECT * FROM USERS WHERE USER_NAME='"+nombre+"' AND USER_PASS='"+clave+"'").addEntity(Users.class).uniqueResult();
+		usuario = (Users)superdao.getSesion().createSQLQuery("SELECT * FROM USUARIOS WHERE NOMBRE='"+nombre+"' AND PASSWORD='"+clave+"'").addEntity(Users.class).uniqueResult();
 		
 		// DECIDIMOS QUE VAMOS A HACER CON EL USUARIO
 		

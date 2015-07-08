@@ -4,19 +4,19 @@
 		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <!--  
-        <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
-        <property name="hibernate.connection.password">PASSWORD</property>
-        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-        <property name="hibernate.connection.username">HR</property>
-        <property name="hibernate.default_schema">HR</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
-        -->
+         
+
+<!--         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property> -->
+<!--         <property name="hibernate.connection.password">ntBtH1NQgtTx</property> -->
+<!--         <property name="hibernate.connection.url">jdbc:mysql://proyectoangel-eltiempo.rhcloud.com:3306/proyectoangel</property> -->
+<!--         <property name="hibernate.connection.username">admin9uBlgm9</property> -->
+<!--         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
+
         <property name="hibernate.connection.datasource">java:comp/env/jdbc/pool</property>
         
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>

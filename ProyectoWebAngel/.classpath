@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="C:/Users/alumno/Desktop/angel/log_/log4j-api-2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alumno/Desktop/angel/log_/log4j-core-2.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/alumno/Desktop/angel/log_/log4j-web-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alumno/git/ProyectoDynamicWeb/ProyectoWebAngel/WebContent/WEB-INF/lib/obdc-mysql-connector-java-5.1.36.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
